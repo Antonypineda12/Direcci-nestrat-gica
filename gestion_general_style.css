@@ -1,0 +1,173 @@
+/* pages/css/gestion_general_style.css */
+/* Repetir todo el contenido general y de detalle */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #004d40; /* Darker Teal */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 5px solid #002b20;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+nav {
+    background-color: #eee;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #004d40;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para páginas de detalle */
+.detail-content {
+    padding: 20px;
+}
+
+.detail-content h2 {
+    color: #004d40;
+    border-bottom: 2px solid #004d40;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-content p {
+    margin-bottom: 10px;
+}
+
+.detail-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.detail-content li {
+    margin-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+}
+
+/* --- Media Queries para hacer el diseño responsive --- */
+
+/* Para pantallas de hasta 768px de ancho (típicamente tabletas y móviles más grandes) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px; /* Reducir padding del contenedor principal */
+        margin: 10px auto; /* Reducir margen superior/inferior */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Reducir tamaño de fuente del título */
+    }
+
+    nav a {
+        padding: 6px 10px; /* Reducir padding de los enlaces de navegación */
+        font-size: 0.9em; /* Reducir tamaño de fuente de los enlaces de navegación */
+    }
+
+    .detail-content {
+        padding: 15px 0; /* Ajustar padding del contenido de detalle */
+    }
+
+    .detail-content h2 {
+        font-size: 1.5em; /* Reducir tamaño de título de detalle */
+        margin-bottom: 15px;
+    }
+
+    .detail-content p,
+    .detail-content ul,
+    .detail-content li {
+        font-size: 0.95em; /* Reducir tamaño de fuente de párrafos y listas */
+    }
+
+    footer {
+        font-size: 0.8em; /* Reducir tamaño de fuente del footer */
+        padding: 10px 0;
+    }
+}
+
+/* Para pantallas de hasta 480px de ancho (típicamente celulares) */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Reducir aún más */
+    }
+
+    header h3 {
+        font-size: 1em; /* Para el subtítulo de la empresa */
+    }
+
+    nav {
+        padding: 5px 0;
+    }
+
+    nav a {
+        padding: 5px 8px;
+        margin: 0 3px;
+        font-size: 0.8em;
+    }
+
+    .detail-content {
+        padding: 10px 0;
+    }
+
+    .detail-content h2 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .detail-content p,
+    .detail-content ul,
+    .detail-content li {
+        font-size: 0.9em;
+    }
+
+    .detail-content ul {
+        margin-left: 15px;
+    }
+
+    footer {
+        font-size: 0.7em;
+    }
+}

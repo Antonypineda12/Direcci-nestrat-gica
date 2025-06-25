@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #004d40; /* Verde oscuro */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 5px solid #002b20;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+header h3 {
+    margin: 5px 0 0;
+    font-size: 1.3em;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.gallery-container {
+    display: grid;
+    /* Crea una cuadrícula responsiva: 
+       - auto-fit: crea tantas columnas como quepan
+       - minmax(280px, 1fr): cada columna tendrá un mínimo de 280px y se estirará para llenar el espacio */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Espacio entre las imágenes */
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo de la galería */
+    margin: 0 auto 50px auto; /* Centrar y añadir margen inferior */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden; /* Asegura que el overlay no se desborde */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer; /* Indica que es interactivo */
+    transition: transform 0.3s ease; /* Efecto suave al hacer hover */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al hacer hover */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Altura fija para las imágenes, puedes ajustarla */
+    object-fit: cover; /* Recorta la imagen para que cubra el área sin distorsionarla */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+    transition: transform 0.3s ease; /* Efecto suave en la imagen al hacer hover */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Pequeño zoom en la imagen al hacer hover */
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 77, 64, 0.8); /* Fondo semitransparente oscuro */
+    overflow: hidden;
+    width: 100%;
+    height: 0; /* Inicialmente oculto */
+    transition: .5s ease; /* Transición suave para el overlay */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item:hover .overlay {
+    height: 100%; /* El overlay se expande para cubrir la imagen */
+}
+
+.text {
+    color: white;
+    font-size: 1.1em;
+    padding: 15px;
+    text-align: center;
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity .3s ease .2s; /* Transición para el texto con un pequeño retraso */
+}
+
+.gallery-item:hover .text {
+    opacity: 1; /* El texto se hace visible al hacer hover */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+    background-color: #f0f0f0;
+}
+
+/* Responsividad mejorada para el diseño de la cuadrícula */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas más pequeñas en tablets */
+        padding: 15px;
+        gap: 15px;
+    }
+    header h1 { font-size: 2em; }
+    header h3 { font-size: 1.1em; }
+    .gallery-item img { height: 220px; }
+    .text { font-size: 1em; padding: 10px; }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* Una sola columna en móviles pequeños */
+        padding: 10px;
+        gap: 10px;
+    }
+    header h1 { font-size: 1.8em; }
+    header h3 { font-size: 1em; }
+    .gallery-item img { height: 200px; }
+    .text { font-size: 0.9em; padding: 8px; }
+}
+nav {
+    background-color: #eee;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #004d40;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}

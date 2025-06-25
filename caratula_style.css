@@ -1,0 +1,288 @@
+/* css/caratula_style.css */
+body {
+    font-family: 'Open Sans', Arial, sans-serif; /* Usando Open Sans como fuente principal */
+    margin: 0;
+    padding: 0;
+    /* CORRECCIÓN: Añadido paréntesis de apertura después de linear-gradient */
+    background: linear-gradient(to bottom, #e0f2f7, #c1e4ee); /* Degradado suave */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility; /* Mejora la renderización de texto */
+}
+
+.caratula-container {
+    background-color: #fffffe;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Sombra más pronunciada */
+    max-width: 900px; /* Un poco más ancho */
+    width: 90%;
+    border: 3px solid #004d40;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre secciones principales */
+}
+
+/* Sección de información de la universidad */
+.university-banner {
+    background-color: #004d40; /* Dark Teal */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.university-banner p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Títulos principales */
+.main-titles h1 {
+    font-family: 'Montserrat', sans-serif; /* Fuente más destacada para títulos */
+    color: #004d40;
+    font-size: 3.2em; /* Un poco más grande */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.main-titles h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #008000; /* Green */
+    font-size: 2em; /* Un poco más grande */
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Sección de información (Curso, Docente, Alumnos) */
+.info-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los ítems se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: 25px; /* Espacio entre los ítems de información */
+    margin-bottom: 30px;
+    padding: 15px 0;
+    border-top: 1px dashed #ccc; /* Línea divisoria sutil */
+    border-bottom: 1px dashed #ccc;
+}
+
+.info-item {
+    flex: 1 1 calc(33% - 50px); /* 3 ítems por fila para desktop, ajustado por gap */
+    min-width: 280px; /* Ancho mínimo para que no se aprieten mucho */
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    text-align: left; /* Alineado a la izquierda para mejor lectura */
+}
+
+.info-item h3 {
+    color: #004d40;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+.info-item p {
+    font-size: 1em;
+    color: #444;
+    margin: 5px 0;
+}
+
+.student-list {
+    list-style: none; /* Quitar viñetas predeterminadas */
+    padding: 0;
+    margin: 0;
+}
+
+.student-list li {
+    font-size: 0.95em;
+    color: #444;
+    margin-bottom: 3px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.student-list li::before {
+    content: '•'; /* Viñeta personalizada */
+    color: #008000; /* Color verde */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Descripción del aplicativo */
+.app-description {
+    line-height: 1.7;
+    font-size: 1.05em;
+    color: #555;
+    margin-bottom: 40px;
+    background-color: #eff8fb; /* Fondo suave para la descripción */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px dashed #cfeef6;
+}
+
+.app-description p {
+    margin-bottom: 10px;
+}
+
+/* Botón "Explorar Cadena de Valor" */
+.caratula-button {
+    display: inline-block;
+    background-color: #008000;
+    color: white;
+    padding: 18px 35px; /* Botón un poco más grande */
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.3em; /* Tamaño de fuente del botón */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0,128,0,0.3); /* Sombra para el botón */
+}
+
+.caratula-button:hover {
+    background-color: #006400;
+    transform: translateY(-3px); /* Efecto de "levantar" */
+    box-shadow: 0 8px 15px rgba(0,128,0,0.4);
+}
+
+footer {
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+/* --- Media Queries para responsividad --- */
+
+/* Para pantallas de hasta 900px (ajuste para contenedores más anchos) */
+@media screen and (max-width: 900px) {
+    .caratula-container {
+        padding: 35px 45px;
+        gap: 15px;
+    }
+    .main-titles h1 {
+        font-size: 2.8em;
+    }
+    .main-titles h2 {
+        font-size: 1.8em;
+    }
+    .info-item {
+        flex: 1 1 calc(50% - 25px); /* 2 ítems por fila */
+        min-width: unset; /* Quitar el min-width para más flexibilidad */
+    }
+}
+
+/* Para pantallas de hasta 768px (típicamente tabletas) */
+@media screen and (max-width: 768px) {
+    .caratula-container {
+        padding: 30px 40px;
+        gap: 15px;
+    }
+    .university-banner p {
+        font-size: 0.9em;
+    }
+    .main-titles h1 {
+        font-size: 2.2em;
+        letter-spacing: 2px;
+    }
+    .main-titles h2 {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+    }
+    .info-item {
+        flex: 1 1 100%; /* 1 ítem por fila */
+        margin-bottom: 15px; /* Espacio entre ítems apilados */
+    }
+    .info-section {
+        flex-direction: column; /* Asegurar apilamiento vertical */
+        gap: 15px;
+    }
+    .info-item h3 {
+        font-size: 1.1em;
+    }
+    .info-item p, .student-list li {
+        font-size: 0.9em;
+    }
+    .app-description {
+        font-size: 0.95em;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+    .caratula-button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+    footer {
+        font-size: 0.8em;
+    }
+}
+
+/* Para pantallas de hasta 480px (típicamente celulares) */
+@media screen and (max-width: 480px) {
+    .caratula-container {
+        padding: 20px 25px;
+        width: 95%;
+        margin: 10px auto;
+        border-radius: 10px;
+        gap: 10px;
+    }
+    .university-banner {
+        padding: 8px 10px;
+        margin-bottom: 15px;
+    }
+    .university-banner p {
+        font-size: 0.8em;
+    }
+    .main-titles h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+    .main-titles h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    .info-section {
+        gap: 10px;
+    }
+    .info-item {
+        padding: 10px;
+    }
+    .info-item h3 {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+    .info-item p, .student-list li {
+        font-size: 0.85em;
+    }
+    .app-description {
+        font-size: 0.88em;
+        padding: 12px;
+        margin-bottom: 25px;
+    }
+    .caratula-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    footer {
+        font-size: 0.75em;
+        padding: 8px;
+    }
+}

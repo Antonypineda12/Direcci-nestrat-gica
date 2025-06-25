@@ -1,0 +1,300 @@
+/* css/cadena_valor_style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    box-sizing: border-box; /* Asegura que padding y borde se incluyan en el tamaño total */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-sizing: border-box; /* Asegura que padding y borde se incluyan en el tamaño total */
+}
+
+header {
+    background-color: #004d40; /* Darker Teal */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 5px solid #002b20;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+nav {
+    background-color: #eee;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #004d40;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+/* Estilos específicos para el diagrama de la cadena de valor */
+.value-chain-diagram {
+    display: flex;
+    flex-direction: column; /* Sections (support and primary) stack vertically */
+    border: 3px solid #000080; /* Dark blue border for the whole diagram */
+    background-color: #ffff00; /* Yellow background for the whole diagram */
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    gap: 20px; /* Space between support and primary sections */
+}
+
+.support-section, .primary-section {
+    background-color: #ffff00; /* Yellow background for each section */
+    border: 2px solid #000080; /* Dark blue border for each section */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1); /* Inner shadow for depth */
+}
+
+.section-header {
+    font-weight: bold;
+    color: red; /* Red text as in the original image */
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed #000080; /* Dashed line under header */
+}
+
+.activities-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 10px; /* Space between activity boxes */
+    justify-content: center; /* Center items if they don't fill the row */
+}
+
+.activity-box {
+    background-color: #ffff00; /* Yellow background, though parent is also yellow */
+    border: 1px solid #000080; /* Dark blue border */
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #008000; /* Green text */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; /* For links */
+    display: flex;
+    flex-direction: column; /* Stack link and concept vertically */
+    align-items: center;
+    justify-content: flex-start; /* Align content to the top */
+    box-sizing: border-box; /* Include padding and border in the width */
+    flex: 1 1 calc(25% - 20px); /* For 4 columns in support, adjusting for gap */
+    min-width: 180px; /* Minimum width for responsiveness */
+    height: auto; /* Allow height to adjust */
+}
+
+.activity-box a {
+    color: #008000; /* Green text for the link */
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between activity name and concept */
+    text-align: center; /* Ensure link text is centered */
+    display: block; /* Make the link a block element so margin-bottom works */
+}
+
+.activity-box a:hover {
+    text-decoration: underline;
+}
+
+.activity-box:hover {
+    background-color: #ffd700; /* Lighter yellow on hover */
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.concept-area {
+    font-size: 0.85em; /* Slightly smaller font for concept details */
+    font-weight: normal;
+    color: #333; /* Darker text for concept */
+    margin-top: 5px;
+    text-align: left;
+    display: none; /* Initially hidden */
+    padding-top: 5px;
+    border-top: 1px dashed #ccc;
+    line-height: 1.4;
+    width: 100%; /* Ensure concept area takes full width of its parent */
+    box-sizing: border-box; /* Include padding/border in width */
+}
+
+.concept-area ul {
+    list-style-type: disc;
+    padding-left: 15px; /* Indent list items */
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.concept-area li {
+    margin-bottom: 3px;
+}
+
+.activity-box:hover .concept-area {
+    display: block; /* Show on hover */
+}
+
+/* Adjust flex-basis for primary activities if they need different widths */
+.primary-activities-container .activity-box {
+    flex: 1 1 calc(20% - 20px); /* For 5 columns for primary activities */
+    min-width: 150px; /* Adjust min-width if needed */
+}
+
+/* Styles for detail pages (keep in their own CSS if separate) */
+.detail-content {
+    padding: 20px;
+}
+
+.detail-content h2 {
+    color: #004d40;
+    border-bottom: 2px solid #004d40;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-content p {
+    margin-bottom: 10px;
+}
+
+.detail-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.detail-content li {
+    margin-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+}
+
+/* --- Media Queries for responsive design --- */
+
+/* For screens up to 768px wide (typically tablets and larger mobiles) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px; /* Reduce padding of main container */
+        margin: 10px auto; /* Reduce top/bottom margin */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Reduce title font size */
+    }
+
+    nav a {
+        padding: 6px 10px; /* Reduce navigation link padding */
+        font-size: 0.9em; /* Reduce navigation link font size */
+    }
+
+    .value-chain-diagram {
+        padding: 10px; /* Reduce diagram padding */
+        min-height: auto; /* Allow height to adjust to content */
+    }
+
+    .support-section, .primary-section {
+        padding: 10px; /* Reduce padding for sections */
+        margin-bottom: 15px; /* Adjust margin */
+    }
+
+    .section-header {
+        font-size: 1.3em; /* Adjust font size for headers */
+        margin-bottom: 10px;
+    }
+
+    .activities-grid {
+        flex-direction: column; /* Stack activities vertically on smaller screens */
+        align-items: center; /* Center items when stacked */
+        gap: 8px; /* Reduce gap */
+    }
+
+    .activity-box {
+        width: 95%; /* Make activity boxes take almost full width */
+        max-width: 300px; /* Max width for readability */
+        padding: 8px; /* Reduce padding of activity boxes */
+        font-size: 0.95em; /* Adjust font size */
+        min-height: 50px; /* Ensure minimum height for touch */
+    }
+
+    .concept-area {
+        font-size: 0.8em; /* Smaller font for concept */
+    }
+
+    .primary-activities-container .activity-box {
+        flex: 1 1 95%; /* Adjust flex for primary activities to stack */
+    }
+
+    footer {
+        font-size: 0.8em; /* Reduce footer font size */
+        padding: 10px 0;
+    }
+}
+
+/* For screens up to 480px wide (typically mobile phones) */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Further reduce */
+    }
+
+    header h3 {
+        font-size: 1em; /* For company subtitle */
+    }
+
+    nav {
+        padding: 5px 0;
+    }
+
+    nav a {
+        padding: 5px 8px;
+        margin: 0 3px;
+        font-size: 0.8em;
+    }
+
+    .section-header {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+    }
+
+    .activity-box {
+        padding: 6px;
+        font-size: 0.9em;
+        min-height: 40px;
+    }
+
+    .concept-area {
+        font-size: 0.75em; /* Even smaller for very small screens */
+    }
+
+    footer {
+        font-size: 0.7em;
+    }
+}

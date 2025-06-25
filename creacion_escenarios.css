@@ -1,0 +1,158 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #04d6fc; /* Un gris azulado muy suave */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #020a13; /* Azul corporativo */
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #0056b3;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+/* Navegación */
+nav {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+nav a {
+    display: inline-block;
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav a:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+/* Secciones */
+section {
+    background-color: #f8fafd; /* Fondo ligeramente diferente para secciones */
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #0056b3;
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #aecde0; /* Línea sutil bajo el título de sección */
+    padding-bottom: 10px;
+}
+
+section h3 {
+    color: #2c3e50;
+    font-size: 1.6em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+section h4 {
+    color: #34495e;
+    font-size: 1.3em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: separate; /* Cambiado a separate para border-radius */
+    border-spacing: 0;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que el border-radius se aplique */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para las esquinas de la tabla */
+th:first-child {
+    border-top-left-radius: 8px;
+}
+
+th:last-child {
+    border-top-right-radius: 8px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Efecto hover en filas de tabla */
+tbody tr:hover {
+    background-color: #f1f7fc;
+    transition: background-color 0.2s ease;
+}
+
+/* Listas */
+ul {
+    list-style-type: disc; /* Puntos normales */
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: #444;
+}
+
+ul li strong {
+    color: #0056b3;
+}
+
+/* Párrafos dentro de secciones */
+section p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Líneas dentro de celdas de tabla */
+td br {
+    margin-bottom: 8px; /* Espaciado entre líneas en las celdas */
+}

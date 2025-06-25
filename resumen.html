@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Cumplimiento de la Cadena de Valor - Rectificaciones Lugo E.I.R.L.</title>
+    <link rel="stylesheet" href="resumen.css">
+    <script src="resumen.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>RESUMEN DE CUMPLIMIENTO DE LA CADENA DE VALOR</h1>
+        <h3>Empresa: Rectificaciones Lugo E.I.R.L.</h3>
+    </header>
+    <nav>
+        <a href="cadena_valor.html">Volver a la Cadena de Valor</a>
+    </nav>
+
+    <div class="contenedor">
+        <div class="seccion-indicador-ieo">
+            <h2><span class="icon-chart"></span> Indicador: Índice de Eficiencia Operacional (IEO)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rango de IEO (%)</th>
+                        <th>Estado</th>
+                        <th>Interpretación</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Rango">≥ 70%</td>
+                        <td data-label="Estado" class="estado-verde"><span class="icon-check">✅</span> EN CONTROL</td>
+                        <td data-label="Interpretación">Alta eficiencia. Predominan actividades que agregan valor.</td>
+                        <td data-label="Color"><span class="color-circulo color-verde"></span> Verde</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Rango">40% – 69%</td>
+                        <td data-label="Estado" class="estado-amarillo"><span class="icon-warning">⚠️</span> BAJO CONTROL</td>
+                        <td data-label="Interpretación">Existen muchas actividades que no agregan valor. Mejorable.</td>
+                        <td data-label="Color"><span class="color-circulo color-amarillo"></span> Amarillo</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Rango">&lt; 40%</td>
+                        <td data-label="Estado" class="estado-rojo"><span class="icon-cross">❌</span> FUERA DE CONTROL</td>
+                        <td data-label="Interpretación">Alta ineficiencia. Urgente rediseñar procesos.</td>
+                        <td data-label="Color"><span class="color-circulo color-rojo"></span> Rojo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion-estado-control">
+            <h2>Estado de Control Actual del IEO</h2>
+            <div class="contenido-estado-control">
+                <span id="estadoControlColor" class="estado-circulo"></span>
+                <p><span id="estadoControlTexto">Calculando...</span></p>
+                <br>
+            </div>
+        </div>
+
+        <div class="seccion-inputs">
+            <h2>Ingreso de Porcentajes de Cumplimiento por Categoría</h2>
+            <p>Introduce el porcentaje de cumplimiento para cada categoría (0-100%).</p>
+            <form id="resumenForm">
+                <div class="input-grupo">
+                    <label for="infraestructura">1. Gestión General o Infraestructura:</label>
+                    <input type="number" id="infraestructura" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="recursosHumanos">2. Gestión de Recursos Humanos:</label>
+                    <input type="number" id="recursosHumanos" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="desarrolloTecnologico">3. Desarrollo Tecnológico:</label>
+                    <input type="number" id="desarrolloTecnologico" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="aprovisionamiento">4. Aprovisionamiento:</label>
+                    <input type="number" id="aprovisionamiento" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="logisticaInterna">5. Logística Interna:</label>
+                    <input type="number" id="logisticaInterna" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="produccion">6. Producción:</label>
+                    <input type="number" id="produccion" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="logisticaExterna">7. Logística Externa:</label>
+                    <input type="number" id="logisticaExterna" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="marketingVentas">8. Marketing y Ventas:</label>
+                    <input type="number" id="marketingVentas" min="0" max="100" value="0" required readonly>
+                </div>
+                <div class="input-grupo">
+                    <label for="servicios">9. Servicios:</label>
+                    <!-- --- CAMBIO AQUÍ: Añadir readonly --- -->
+                    <input type="number" id="servicios" min="0" max="100" value="0" required readonly>
+                </div>
+                <button type="submit" id="calcularResumenBtn">Calcular Resumen Global</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="seccion-resumen">
+            <h2>Resumen General de Cumplimiento</h2>
+            <div class="contenido-sumario">
+                <div class="texto-de-resumen">
+                    <p>Promedio General de Cumplimiento: <span id="porcentajePromedio">0.00%</span></p>
+                    <p>Categorías Evaluadas: <span id="categoriasEvaluadas">9</span></p>
+                    <p>El cumplimiento se mide sobre 100% por categoría.</p>
+                </div>
+                <div class="contenedor-de-gráficos">
+                    <canvas id="resumenChart"></canvas>
+                </div>
+            </div>
+            <div class="resumen-de-hallazgos">
+                <h3>Observaciones Globales</h3>
+                <textarea id="observacionesGlobales" placeholder="Escribe aquí las observaciones generales de la cadena de valor..."></textarea>
+            </div>
+        </div>
+        <button id="descargarPdfBtn">Descargar PDF de la Página</button>
+    </div>
+
+    <footer>
+        <p>© 2025 Rectificaciones Lugo E.I.R.L. | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="resumen.js"></script>
+</body>
+</html>
