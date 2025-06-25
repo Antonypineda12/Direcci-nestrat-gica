@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Desarrollo Tecnológico - Rectificaciones Lugo E.I.R.L.</title>
+    <link rel="stylesheet" href="desarrollo_tecnologico.css">
+    <script src="desarrollo_tecnologico.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Incluir jsPDF para generar el PDF (Necesario para el botón de descarga) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Incluir html2canvas para capturar el contenido HTML (Necesario para el botón de descarga) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CHECKLIST DE DESARROLLO TECNOLÓGICO</h1>
+        <h3>Empresa: Rectificaciones Lugo E.I.R.L.</h3>
+    </header>
+    <nav>
+        <a href="cadena_valor.html">Volver a la Cadena de Valor</a>
+    </nav>
+    <br>
+    <br>
+
+    <div class="container">
+    <!-- INICIO CONTENEDOR CHECKLIST -->
+    <div id="checklistContent">
+        <div class="checklist-table">
+
+            <div class="table-header">
+                <div class="header-cell question-cell"><center>Cuestiones</center></div>
+                <div class="header-cell compliance-header">¿Cumplimiento?</div>
+                <div class="header-cell observation-cell">Observaciones</div>
+            </div>
+            <div class="table-sub-header">
+                <div class="sub-header-spacer"></div>
+                <div class="sub-header-cell">Malo(0)</div>
+                <div class="sub-header-cell">Regular(1)</div>
+                <div class="sub-header-cell">Bueno(2)</div>
+                <div class="sub-header-cell">Excelente(3)</div>
+                <div class="sub-header-spacer"></div>
+            </div>
+
+            <form id="checklistForm">
+                <div class="table-row">
+                    <div class="question-cell">1. ¿Se invierte regularmente en la adquisición de nuevas tecnologías y equipos de rectificación avanzados?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q1" value="0" required></label>
+                        <label><input type="radio" name="q1" value="1"></label>
+                        <label><input type="radio" name="q1" value="2"></label>
+                        <label><input type="radio" name="q1" value="3"></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs1"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">2. ¿Se utilizan softwares especializados (CAD/CAM, simulación) para el diseño y rectificación de piezas?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q2" value="0"></label>
+                        <label><input type="radio" name="q2" value="1"></label>
+                        <label><input type="radio" name="q2" value="2" required></label>
+                        <label><input type="radio" name="q2" value="3"></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs2"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">3. ¿Existe un plan para la automatización de procesos clave en la rectificación?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q3" value="0"></label>
+                        <label><input type="radio" name="q3" value="1"></label>
+                        <label><input type="radio" name="q3" value="2"></label>
+                        <label><input type="radio" name="q3" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs3"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">4. ¿Se gestiona y analiza la data de producción para optimizar procesos y reducir errores?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q4" value="0"></label>
+                        <label><input type="radio" name="q4" value="1"></label>
+                        <label><input type="radio" name="q4" value="2"></label>
+                        <label><input type="radio" name="q4" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs4"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">5. ¿La empresa cuenta con sistemas de ciberseguridad adecuados para proteger su información?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q5" value="0"></label>
+                        <label><input type="radio" name="q5" value="1"></label>
+                        <label><input type="radio" name="q5" value="2"></label>
+                        <label><input type="radio" name="q5" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs5"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">6. ¿Se capacita regularmente al personal en el uso de nuevas tecnologías y herramientas?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q6" value="0"></label>
+                        <label><input type="radio" name="q6" value="1"></label>
+                        <label><input type="radio" name="q6" value="2"></label>
+                        <label><input type="radio" name="q6" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs6"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">7. ¿Se utilizan plataformas digitales para la interacción con clientes (CRM, reservas online)?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q7" value="0"></label>
+                        <label><input type="radio" name="q7" value="1"></label>
+                        <label><input type="radio" name="q7" value="2" required></label>
+                        <label><input type="radio" name="q7" value="3"></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs7"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">8. ¿Existe un proceso para identificar y reemplazar tecnologías obsoletas en el taller?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q8" value="0"></label>
+                        <label><input type="radio" name="q8" value="1"></label>
+                        <label><input type="radio" name="q8" value="2"></label>
+                        <label><input type="radio" name="q8" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs8"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">9. ¿La empresa está explorando nuevas técnicas o materiales de rectificación innovadores?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q9" value="0"></label>
+                        <label><input type="radio" name="q9" value="1"></label>
+                        <label><input type="radio" name="q9" value="2" required></label>
+                        <label><input type="radio" name="q9" value="3"></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs9"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">10. ¿La empresa tiene una presencia digital activa (web, redes sociales) y la actualiza?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q10" value="0"></label>
+                        <label><input type="radio" name="q10" value="1"></label>
+                        <label><input type="radio" name="q10" value="2"></label>
+                        <label><input type="radio" name="q10" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs10"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">11. ¿Se considera la implementación de tecnologías más sostenibles o eficientes energéticamente?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q11" value="0"></label>
+                        <label><input type="radio" name="q11" value="1"></label>
+                        <label><input type="radio" name="q11" value="2" required></label>
+                        <label><input type="radio" name="q11" value="3"></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs11"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">12. ¿La infraestructura de red y los servidores son robustos y fiables para las operaciones?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q12" value="0"></label>
+                        <label><input type="radio" name="q12" value="1"></label>
+                        <label><input type="radio" name="q12" value="2"></label>
+                        <label><input type="radio" name="q12" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs12"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">13. ¿Se realizan copias de seguridad de la información crítica y se tiene un plan de recuperación ante desastres?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q13" value="0"></label>
+                        <label><input type="radio" name="q13" value="1"></label>
+                        <label><input type="radio" name="q13" value="2" required></label>
+                        <label><input type="radio" name="q13" value="3"></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs13"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">14. ¿La empresa es adaptable a los rápidos cambios tecnológicos del sector automotriz y de rectificación?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q14" value="0"></label>
+                        <label><input type="radio" name="q14" value="1"></label>
+                        <label><input type="radio" name="q14" value="2"></label>
+                        <label><input type="radio" name="q14" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs14"></textarea></div>
+                </div>
+                <div class="table-row">
+                    <div class="question-cell">15. ¿Se protegen los desarrollos tecnológicos y la propiedad intelectual de la empresa?</div>
+                    <div class="compliance-radio-group">
+                        <label><input type="radio" name="q15" value="0"></label>
+                        <label><input type="radio" name="q15" value="1"></label>
+                        <label><input type="radio" name="q15" value="2"></label>
+                        <label><input type="radio" name="q15" value="3" required></label>
+                    </div>
+                    <div class="observation-cell"><textarea name="obs15"></textarea></div>
+                </div>
+    </form>
+</div>
+</div> <!-- <- Cierra checklistContent -->
+
+<button id="calculateSummaryBtn">Calcular Resumen</button>
+
+
+        <div class="summary-section">
+            <h2>Resumen de Cumplimiento</h2>
+            <div class="summary-content">
+                <div class="summary-text">
+                    <p>Puntuación Total Obtenida: <span id="totalScore">0</span></p>
+                    <p>Puntuación Máxima Posible: <span id="maxScore">0</span></p>
+                    <p>Porcentaje General de Cumplimiento: <span id="compliancePercentage">0.00%</span></p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="complianceChart"></canvas>
+                </div>
+            </div>
+            <div class="summary-findings">
+                <h3>Hallazgos y Observaciones Globales</h3>
+                <textarea id="globalObservations" placeholder="Escribe aquí tus observaciones generales del checklist..."></textarea>
+            </div>
+        </div>
+        <!-- Botón de descarga PDF para la página de Desarrollo Tecnológico -->
+        <button id="downloadPdfBtn">Descargar PDF de la Página</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Rectificaciones Lugo E.I.R.L. | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="desarrollo_tecnologico.js"></script>
+</body>
+</html>

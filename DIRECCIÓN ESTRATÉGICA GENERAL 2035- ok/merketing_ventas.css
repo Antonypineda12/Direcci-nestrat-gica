@@ -1,0 +1,493 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Fondo más claro */
+    color: #333;
+    line-height: 1.6;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+header {
+    background-color: #004d40; /* Verde oscuro */
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    border-bottom: 6px solid #002b20;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header h3 {
+    margin: 10px 0 0;
+    font-size: 1.4em;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+/* Estilos de la tabla del checklist */
+.tabla-de-lista-de-verificación {
+    border: 1px solid #c0c0c0; /* Borde gris similar a la imagen */
+    border-collapse: collapse; /* Mantiene los bordes únicos */
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 8px; /* Bordes redondeados para la tabla */
+    overflow: hidden; /* Asegura que los bordes redondeados se vean bien */
+}
+
+.encabezado-de-tabla {
+    display: flex;
+    background-color: #004d40; /* Mismo color del encabezado principal */
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-bottom: 1px solid #002b20;
+}
+
+.header-cell {
+    padding: 10px 10px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    display: flex; /* Para centrar contenido vertical */
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Permite que crezcan */
+    flex-shrink: 0; /* Evita que se encojan */
+}
+
+.header-cell:last-child {
+    border-right: none;
+}
+
+.header-cell.question-cell {
+    flex-basis: 49.2%; /* Ocupa la mitad del espacio disponible */
+    text-align: center;
+    padding-left: 0px;
+    
+}
+
+.header-cell.compliance-header {
+    flex-basis: 25%; /* Ocupa 1/4 del espacio disponible */
+}
+
+.header-cell.observer-cell {
+    flex-basis: 25%; /* Ocupa 1/4 del espacio disponible */
+    border-right: none;
+}
+
+.subencabezado-de-tabla {
+    display: flex;
+    background-color: #e0e0e0; /* Gris claro para el sub-header */
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.sub-header-spacer {
+    /* Estas reglas son cruciales para alinear con las celdas principales */
+    flex-grow: 1;
+    flex-shrink: 0;
+    border-right: 1px solid #d0d0d0;
+    background-color: #e0e0e0; /* Fondo para el espaciador */
+}
+
+.sub-header-spacer:first-child {
+    flex-basis: 50%; /* Coincide con la celda de pregunta */
+}
+
+.sub-header-cell {
+    flex-basis: 6.25%; /* 25% (de compliance-header) / 4 opciones = 6.25% */
+    padding: 8px 5px;
+    text-align: center;
+    border-right: 1px solid #d0d0d0;
+    display: flex; /* Para centrar el texto */
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header-cell:last-of-type {
+    border-right: none;
+}
+
+.sub-header-spacer:last-of-type {
+    flex-basis: 25%; /* Coincide con la celda de observación */
+    border-right: none;
+}
+
+/* Filas de actividades */
+.tabla-fila {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    align-items: stretch; /* Estira los elementos para que ocupen toda la altura de la fila */
+    min-height: 80px; /* Asegura una altura mínima para las filas, importante para textarea */
+}
+
+.tabla-fila:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo alterno para filas */
+}
+
+.tabla-fila > div {
+    padding: 10px;
+    border-right: 1px solid #eee;
+    display: flex;
+    align-items: center; /* Centrar contenido verticalmente */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.tabla-fila > div:last-child {
+    border-right: none;
+}
+
+/* Anchos específicos para las celdas de la fila */
+.tabla-fila .question-cell {
+    flex-basis: 50%;
+    text-align: left;
+    padding-left: 15px;
+    justify-content: flex-start;
+}
+
+/* Grupo de radio botones - CRUCIAL PARA LA ALINEACIÓN */
+.grupo-de-radio-de-cumplimiento {
+    flex-basis: 25%; /* Debe coincidir con header-cell.compliance-header */
+    display: flex;
+    justify-content: space-around; /* Distribuye los radio buttons equitativamente */
+    align-items: center;
+    padding: 0 5px; /* Ajusta el relleno horizontal */
+}
+
+.grupo-de-radio-de-cumplimiento label {
+    display: flex;
+    justify-content: center; /* Centra el radio button dentro de su label */
+    align-items: center;
+    width: 25%; /* Cada label toma 1/4 del ancho disponible del grupo */
+    height: 100%; /* Permite que el label ocupe la altura de la celda */
+}
+
+.grupo-de-radio-de-cumplimiento input[type="radio"] {
+    transform: scale(1.2); /* Aumentar tamaño del radio button */
+    cursor: pointer;
+    margin: 0; /* Elimina márgenes por defecto para mejor control */
+}
+
+/* Textarea para observaciones */
+.tabla-fila .celda-de-observación {
+    flex-basis: 25%; /* Debe coincidir con header-cell.observation-cell */
+    display: flex; /* Para centrar el textarea */
+    align-items: center;
+    justify-content: center;
+}
+
+.tabla-fila .celda-de-observación textarea {
+    width: 100%;
+    min-height: 60px; /* Altura mínima para el textarea */
+    height: auto; /* Permite que crezca si el texto es largo */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 0.9em;
+    box-sizing: border-box; /* Incluye padding en el ancho */
+    resize: vertical; /* Le permite cambiar el tamaño verticalmente */
+    flex-grow: 1; /* Permite que el textarea ocupe el espacio disponible */
+}
+
+/* Botón de cálculo */
+#calculateSummaryBtn {
+    display: block;
+    width: 250px;
+    padding: 15px 20px;
+    margin: 30px auto;
+    background-color: #00796b; /* Un verde teal más claro */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#calculateSummaryBtn:hover {
+    background-color: #005a4e; /* Verde más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+#calculateSummaryBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Sección de resumen */
+.sección-de-resumen {
+    background-color: #e8f5e9; /* Un verde muy claro */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    margin-top: 40px;
+    border: 1px solid #c8e6c9; /* Borde suave */
+}
+
+.sección-de-resumen h2 {
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #004d40;
+    padding-bottom: 10px;
+}
+
+.contenido-sumario {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: center; /* Centra los elementos */
+    align-items: flex-start; /* Alinea al inicio verticalmente */
+    gap: 30px; /* Espacio entre el texto y el gráfico */
+}
+
+.texto-de-resumen {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 280px; /* Ancho mínimo para el texto */
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.texto-de-resumen p {
+    margin-bottom: 10px;
+}
+
+.texto-de-resumen span {
+    font-weight: bold;
+    color: #00796b;
+}
+
+.contenedor-de-gráficos {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para el gráfico */
+    max-width: 400px; /* Ancho máximo para el gráfico */
+    height: 300px; /* Altura fija para el gráfico */
+    display: flex; /* Para centrar el canvas si es más pequeño */
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.resumen-de-hallazgos {
+    margin-top: 40px;
+    border-top: 1px dashed #a5d6a7;
+    padding-top: 20px;
+}
+
+.resumen-de-hallazgos h3 {
+    color: #004d40;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+#globalObservations {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 1em;
+    line-height: 1.5;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+    color: #fff;
+    font-size: 0.9em;
+    background-color: #004d40;
+    border-top: 5px solid #002b20;
+}
+
+nav {
+    background-color: #eee;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #004d40;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 900px) {
+    .header-cell {
+        font-size: 1em;
+        padding: 10px 5px;
+    }
+    .sub-header-cell {
+        font-size: 0.8em;
+        padding: 6px 3px;
+    }
+    .question-cell {
+        padding-left: 10px;
+    }
+    .tabla-fila > div {
+        padding: 8px;
+    }
+    .grupo-de-radio-de-cumplimiento label {
+        padding: 0 2px;
+    }
+    .grupo-de-radio-de-cumplimiento input[type="radio"] {
+        transform: scale(1.1);
+    }
+    #calculateSummaryBtn {
+        width: 200px;
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+    .tabla-fila {
+        min-height: 70px; /* Ajusta la altura mínima para pantallas medianas */
+    }
+    .tabla-fila .celda-de-observación textarea {
+        min-height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor {
+        padding: 20px;
+        width: 98%;
+    }
+    header h1 { font-size: 2.2em; }
+    header h3 { font-size: 1.2em; }
+
+    .tabla-de-lista-de-verificación {
+        font-size: 0.9em;
+    }
+
+    /* En pantallas pequeñas, apilamos las celdas para mejor lectura */
+    .encabezado-de-tabla, .subencabezado-de-tabla, .tabla-fila {
+        flex-direction: column; /* Apila las celdas */
+        align-items: stretch; /* Estira para ocupar todo el ancho */
+    }
+
+    .header-cell, .sub-header-cell, .tabla-fila > div {
+        flex-basis: auto !important; /* Resetea la base flex */
+        flex-grow: 1; /* Permite que crezca */
+        width: 100%; /* Ocupa todo el ancho */
+        border-right: none; /* Elimina bordes verticales */
+        border-bottom: 1px solid #eee; /* Añade borde inferior para separación */
+        padding: 10px;
+        text-align: left; /* Alinea el texto a la izquierda */
+        justify-content: flex-start; /* Alinea contenido a la izquierda */
+    }
+
+    /* Ocultar encabezados y espaciadores que no son relevantes al apilar */
+    .header-cell.compliance-header,
+    .header-cell.observer-cell,
+    .sub-header-spacer {
+        display: none;
+    }
+
+    .question-cell {
+        font-weight: bold;
+        background-color: #f0f0f0;
+        padding-bottom: 10px;
+    }
+
+    .grupo-de-radio-de-cumplimiento {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        justify-content: space-around; /* Distribuye los botones de opción */
+    }
+    .grupo-de-radio-de-cumplimiento label {
+        width: 25%; /* Cada label ocupa el 25% */
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .celda-de-observación {
+        padding-bottom: 15px;    
+        border-bottom: none; /* La última celda de la "fila" móvil no necesita borde inferior */
+    }
+    .tabla-fila .celda-de-observación textarea {
+        min-height: 80px; /* Asegura altura en móvil */
+    }
+
+
+    .contenido-sumario {
+        flex-direction: column;    
+        align-items: center;
+    }
+    .contenedor-de-gráficos, .texto-de-resumen {
+        width: 100%;
+        min-width: unset;    
+        max-width: 90%;    
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 1.8em; }
+    header h3 { font-size: 1em; }
+    .contenedor { padding: 15px; }
+    #calculateSummaryBtn { width: 180px; font-size: 0.9em; }
+    .summary-text { font-size: 1em; }
+    .chart-container { height: 250px; }    
+}
+#downloadPdfBtn {
+    display: block;
+    width: 250px;
+    padding: 15px 20px;
+    margin: 30px auto; /* Centra el botón y le da espacio */
+    background-color: #005a4e; /* Un color verde que contraste con el de calcular */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#downloadPdfBtn:hover {
+    background-color: #004d40; /* Verde más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+#downloadPdfBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}

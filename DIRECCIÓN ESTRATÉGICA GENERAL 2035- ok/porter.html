@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>5 Fuerzas de Porter Interactivo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <link rel="stylesheet" href="recursos_humano.css">
+    <script src="recursos_humanos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Incluir jsPDF para generar el PDF (Necesario para el botón de descarga) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Incluir html2canvas para capturar el contenido HTML (Necesario para el botón de descarga) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2, h3 {
+      color: #004d66;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .tabla-porter {
+      flex: 0 0 60%;
+      min-width: 400px;
+    }
+
+    .grafico {
+      flex: 0 0 38%;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #004d66;
+      color: white;
+    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+th {
+  background-color: #004d66;
+  color: white;
+}
+
+input[type=number] {
+  width: 60px;
+  text-align: center;
+}
+
+.bajo {
+  color: green;
+  font-weight: bold;
+}
+
+.medio {
+  color: orange;
+  font-weight: bold;
+}
+
+.alto {
+  color: red;
+  font-weight: bold;
+}
+
+.porcentaje {
+  font-weight: bold;
+}
+
+
+    input[type=number] {
+      width: 50px;
+      text-align: center;
+    }
+
+    .bajo {
+      color: green;
+      font-weight: bold;
+    }
+
+    .medio {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .alto {
+      color: red;
+      font-weight: bold;
+    }
+
+    .porcentaje {
+      font-weight: bold;
+    }
+
+    #radar-container {
+      width: 100%;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+
+    #valores-intensidad {
+      margin-top: 10px;
+      font-size: 13px;
+      text-align: left;
+      padding-left: 15px;
+    }
+
+    #valores-intensidad span {
+      display: block;
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2> 5 Fuerzas de Porter</h2>
+     <nav>
+             <a href="indexsegundo.html">Volver al Analisis de Entorno</a>
+    </nav>
+
+  <div class="container">
+    <div class="tabla-porter">
+      <table>
+        <thead>
+          <tr>
+            <th>Fuerza de Porter</th>
+            <th>#</th>
+            <th>Variable</th>
+            <th>Valor</th>
+            <th>Clasificación</th>
+            <th>Porcentaje</th>
+          </tr>
+        </thead>
+        <tbody id="porter-table"></tbody>
+      </table>
+    </div>
+
+    <div class="grafico">
+             <h2> <br> <br> <br>  Gráfico Radar </h2>
+      <div id="radar-container">
+        <canvas id= "radarChart"></canvas>
+      </div>
+     
+    </div>
+  </div>
+
+<script>
+  const datos = [
+    ["Amenaza de Nuevos Entrantes", [
+      "Economías de escala",
+      "Diferenciación del producto",
+      "Necesidad de capital",
+      "Canales de distribución",
+      "Ventaja tecnológica"
+    ]],
+    ["Poder de Negociación de los Clientes", [
+      "Volumen de ventas",
+      "Producto indiferenciado",
+      "Beneficios del cliente",
+      "Poder de integración hacia atrás",
+      "Variedad de proveedores"
+    ]],
+    ["Poder de Negociación de los Proveedores", [
+      "Existencia de proveedores",
+      "Productos sustitutos",
+      "Productos únicos"
+    ]],
+    ["Amenaza de Productos Sustitutos", [
+      "Productos sustitutos",
+      "Precio y disponibilidad"
+    ]],
+    ["Rivalidad entre Competidores", [
+      "Número de competidores",
+      "Crecimiento del sector",
+      "No diferenciación del sector",
+      "Barrera de salida"
+    ]]
+  ];
+
+  const clasificacion = (valor) => {
+    if (valor == 1) return ["Bajo", "bajo"];
+    if (valor == 2) return ["Medio", "medio"];
+    if (valor == 3) return ["Alto", "alto"];
+    return ["-", ""];
+  };
+
+  const tableBody = document.getElementById("porter-table");
+ const radarLabels = [
+  "Nuevos Entrantes",
+  "Clientes",
+  "Proveedores",
+  "Sustitutos",
+  "Competencia"
+];
+  const radarData = new Array(radarLabels.length).fill(0);
+
+  const radarChart = new Chart(document.getElementById("radarChart"), {
+    type: 'radar',
+    data: {
+      labels: radarLabels,
+      datasets: [{
+        label: '% Intensidad',
+        data: radarData,
+        fill: true,
+        backgroundColor: 'rgba(0, 102, 102, 0.2)',
+        borderColor: 'rgba(0, 102, 102, 1)',
+        pointBackgroundColor: 'rgba(0, 102, 102, 1)'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      scales: {
+        r: {
+          suggestedMin: 0,
+          suggestedMax: 100,
+          ticks: { stepSize: 20 }
+        }
+      }
+    }
+  });
+
+  const valoresIntensidad = document.getElementById("valores-intensidad");
+
+  datos.forEach(([fuerza, variables], index) => {
+    const valores = [];
+    let celdaPorcentaje = null;
+
+    variables.forEach((variable, i) => {
+      const row = document.createElement("tr");
+
+      if (i === 0) {
+        const tdFuerza = document.createElement("td");
+        tdFuerza.rowSpan = variables.length;
+        tdFuerza.textContent = fuerza;
+        tdFuerza.style.fontWeight = "bold";
+        row.appendChild(tdFuerza);
+      }
+
+      const tdNum = document.createElement("td");
+      tdNum.textContent = i + 1;
+      row.appendChild(tdNum);
+
+      const tdVar = document.createElement("td");
+      tdVar.textContent = variable;
+      row.appendChild(tdVar);
+
+      const tdVal = document.createElement("td");
+      const input = document.createElement("input");
+      input.type = "number";
+      input.min = 1;
+      input.max = 3;
+      input.value = 1;
+      tdVal.appendChild(input);
+      row.appendChild(tdVal);
+
+      const tdClas = document.createElement("td");
+      const [txt, cls] = clasificacion(1);
+      tdClas.textContent = txt;
+      tdClas.className = cls;
+      row.appendChild(tdClas);
+
+      if (i === 0) {
+        const tdPorc = document.createElement("td");
+        tdPorc.rowSpan = variables.length;
+        tdPorc.className = "porcentaje";
+        row.appendChild(tdPorc);
+        celdaPorcentaje = tdPorc;
+      }
+
+      input.addEventListener("input", () => {
+        const val = parseInt(input.value);
+        const [txt, cls] = clasificacion(val);
+        tdClas.textContent = txt;
+        tdClas.className = cls;
+        updatePorcentaje();
+      });
+
+      valores.push(input);
+      tableBody.appendChild(row);
+    });
+
+    function updatePorcentaje() {
+      let total = 0;
+      valores.forEach(input => total += parseInt(input.value) || 0);
+      const promedio = total / valores.length;
+      const porcentaje = Math.round((promedio / 3) * 100);
+      celdaPorcentaje.textContent = porcentaje + "%";
+      radarChart.data.datasets[0].data[index] = porcentaje;
+      radarChart.update();
+      updateResumen();
+    }
+
+    setTimeout(() => updatePorcentaje(), 100);
+  });
+
+  
+</script>
+
+</body>
+</html>

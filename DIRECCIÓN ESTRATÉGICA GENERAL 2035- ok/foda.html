@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FODA - Rectificaciones y Talleres Lugo E.I.R.L.</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <link rel="stylesheet" href="recursos_humano.css">
+    <script src="recursos_humanos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Incluir jsPDF para generar el PDF (Necesario para el botón de descarga) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Incluir html2canvas para capturar el contenido HTML (Necesario para el botón de descarga) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th {
+            background-color: #004d66;
+            color: white;
+            padding: 10px;
+        }
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        caption {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ANALISIS FODA</h1>
+        <h3>Empresa: Rectificaciones Lugo E.I.R.L.</h3>
+    </header>
+    <nav>
+        <a href="indexsegundo.html">Volver al Analisis de Entorno</a>
+    </nav>
+
+    <table>
+        <caption> FODA - Rectificaciones y Talleres Lugo E.I.R.L.</caption>
+        <thead>
+            <tr>
+                <th>Fuerza de Porter</th>
+                <th>Oportunidades</th>
+                <th>Amenazas</th>
+                <th>Fortalezas</th>
+                <th>Debilidades</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">Clientes</td>
+                <td>Contar con clientes leales</td>
+                <td>Dependencia de compradores grandes</td>
+                <td>Trato humano y compromiso con la satisfacción del cliente</td>
+                <td>Ausencia de precios estandarizados visibles</td>
+            </tr>
+            <tr>
+                <td>Ampliar la lista de clientes con marketing digital</td>
+                <td>No aumentar la lista de clientes</td>
+                <td>Atención técnica especializada y garantía</td>
+                <td>Poca presencia digital y escasa promoción online</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Cambio en preferencias del cliente (repuestos nuevos vs. reparación)</td>
+                <td>Reconocimiento en Huánuco y Ucayali</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="3">Entrantes Potenciales</td>
+                <td>Estudiar nuevos planes de negocio</td>
+                <td>Posible pérdida de clientes por nuevos competidores</td>
+                <td>Experiencia técnica e infraestructura instalada</td>
+                <td>Dependencia de ciertos insumos importados</td>
+            </tr>
+            <tr>
+                <td>Analizar operaciones para mejorar eficiencia</td>
+                <td>Posible pérdida de proveedores</td>
+                <td>Sistema de mantenimiento documentado y planificado</td>
+                <td>Falta de estrategia ambiental clara</td>
+            </tr>
+            <tr>
+                <td>Adoptar nuevas estrategias de marketing</td>
+                <td>Aumento de la competencia local y regional</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="3">Competidores del Sector</td>
+                <td>Aprovechar tendencias de consumo sostenible</td>
+                <td>Disminución de demanda frente a sustitutos</td>
+                <td>Maquinaria especializada (rectificadoras, torno, fresadora)</td>
+                <td>Limitada innovación visible frente a la competencia</td>
+            </tr>
+            <tr>
+                <td>Innovar en diseño y calidad del servicio técnico</td>
+                <td>Inestabilidad económica del país</td>
+                <td>Cumplimiento en tiempos y estándares técnicos</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mejorar el servicio al cliente</td>
+                <td>Posible pérdida de clientes si no hay diferenciación</td>
+                <td>Valores organizacionales sólidos</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="3">Proveedores</td>
+                <td>Ampliar cartera de proveedores</td>
+                <td>Inestabilidad de proveedores por alta demanda</td>
+                <td>Relaciones técnicas consolidadas con proveedores</td>
+                <td>Dependencia de proveedores extranjeros</td>
+            </tr>
+            <tr>
+                <td>Negociar mejores precios y calidad</td>
+                <td>Aumento de precios de materias primas</td>
+                <td></td>
+                <td>Poca flexibilidad ante cambios en la cadena de suministros</td>
+            </tr>
+            <tr>
+                <td>Crear relaciones a largo plazo con proveedores clave</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="2">Productos Sustitutos</td>
+                <td>Innovar en materiales/diseños para diferenciar servicios</td>
+                <td>Alta competencia con productos sustitutos (bloques, culatas nuevas)</td>
+                <td>Capacidad de ofrecer reparación especializada frente a reemplazo total</td>
+                <td>Innovación limitada en servicios “verdes” o sostenibles</td>
+            </tr>
+            <tr>
+                <td>Ofrecer servicios ecológicos o sostenibles (manejo de residuos)</td>
+                <td>Precios más bajos en el mercado de partes nuevas</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
