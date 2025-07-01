@@ -37,8 +37,8 @@ header h3 {
 .container {
     display: flex;
     flex-direction: column;
-    width: 90%; /* Responsive width */
-    max-width: 1200px; /* Max width for larger screens */
+    width: 100%; /* Responsive width */
+    max-width: 1300px; /* Max width for larger screens */
     flex-grow: 1; /* Allow container to grow and fill available space */
     position: relative;
     overflow: hidden; /* Hide overflow for background image */
@@ -54,7 +54,7 @@ header h3 {
     gap: 30px; /* Space between buttons and dropdowns */
     padding: 30px;
     background-color: #f8f8f8; /* Slightly off-white background for buttons section */
-    z-index: 10; /* Ensure buttons are above the image */
+    z-index: 20; /* Ensure buttons are above the image */
     border-bottom: 1px solid #eee; /* Separator line */
     border-top-left-radius: 12px; /* Match container corners */
     border-top-right-radius: 12px;
@@ -152,14 +152,14 @@ header h3 {
 }
 
 .background-image-container {
-    flex-grow: 1; /* Take up remaining space */
+    flex-grow: 3; /* Take up remaining space */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    border-bottom-left-radius: 12px; /* Match container corners */
-    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 30px; /* Match container corners */
+    border-bottom-right-radius: 30px;
 }
 
 .background-image {
