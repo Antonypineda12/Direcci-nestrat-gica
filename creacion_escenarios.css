@@ -156,3 +156,16 @@ section p {
 td br {
     margin-bottom: 8px; /* Espaciado entre líneas en las celdas */
 }
+@media (max-width: 480px) {
+    .seccion-estado-control h2 { font-size: 1.5em; }
+    .contenido-estado-control { font-size: 1.2em; }
+    .estado-circulo { width: 25px; height: 25px; }
+}
+/* ... (Tu CSS existente) ... */
+
+/* Estilos para inputs de solo lectura (readonly) */
+.input-grupo input[type="number"][readonly] {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    cursor: not-allowed; /* Cursor de "prohibido" */
+    border-color: #ddd; /* Borde más suave */
+}
